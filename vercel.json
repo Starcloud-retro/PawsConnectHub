@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    { "source": "/marketplace", "destination": "/marketplace.html" },
+    { "source": "/community",   "destination": "/community.html"   },
+    { "source": "/login",       "destination": "/login.html"       },
+    { "source": "/blog",        "destination": "/blog.html"        }
+  ]
+}
