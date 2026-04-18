@@ -70,33 +70,41 @@ Make sure you have:
 
 ### 1. Clone the Repository
 
-```bash
+bash
+
 git clone https://github.com/Starcloud-retro/PawsConnectHub.git
 cd PawsConnectHub
 
-2. Open in IntelliJ
+### 2. Open in IntelliJ
 Open IntelliJ → Open Project
 Select the project folder
-3. Configure SDK
+
+
+### 3. Configure SDK
 
 Go to:
 
 File → Project Structure → Project
 
 Set SDK → JDK 17 or above
-4. Setup Maven
+
+### 4. Setup Maven
 
 If not auto-detected:
 
 Right-click pom.xml → Add as Maven Project
-5. Configure Database
+
+### 5. Configure Database
+
 Open MySQL
+
 Run:
 CREATE DATABASE pawsconnect;
 USE pawsconnect;
 Import schema:
 SOURCE src/main/resources/schema.sql;
-6. Update DB Credentials
+
+### 6. Update DB Credentials
 
 Go to:
 
@@ -107,15 +115,20 @@ Update:
 private static final String URL = "jdbc:mysql://localhost:3306/pawsconnect";
 private static final String USER = "root";
 private static final String PASSWORD = "your_password";
-7. Configure Tomcat Server
+
+### 7. Configure Tomcat Server
+
 Go to: Run → Edit Configurations
 Add → Tomcat Server → Local
 Set Application Server → Your Tomcat Folder
-8. Add Deployment
+
+### 8. Add Deployment
+
 In Deployment tab → Click "+"
 Select:
 PawsConnect:war exploded
-9. Verify Artifact
+
+### 9. Verify Artifact
 
 Go to:
 
@@ -125,7 +138,8 @@ Make sure it contains:
 
 WEB-INF
 Web facet resources
-10. Run Project
+
+### 10. Run Project
 
 Click ▶️ Run
 
@@ -141,41 +155,52 @@ http://localhost:8080/PawsConnect/
 | Session  | SessionServlet  |
 
 
-🔄 How It Works
+### 🔄 How It Works
+
 User submits form (HTML)
 JavaScript sends request
 Servlet handles request
 DAO interacts with database
 Response returned as JSON
 Frontend updates UI
-🧪 Testing
+
+### 🧪 Testing
+
 Register a new user
 Login
 Check session
 Logout
-⚠️ Common Errors
+
+### ⚠️ Common Errors
+
 404 Error
 Check URL: /PawsConnect/
 Ensure artifact deployed
+
 Database Error
 MySQL running
 Credentials correct
+
 Servlet Not Working
 Check web.xml
 Check mappings
 Blank Page
 Check browser console (F12)
-📌 Notes
+
+### 📌 Notes
 Uses WAR exploded deployment
 Built with pure Servlets (no Spring Boot)
 Good for learning backend fundamentals
-💡 Future Improvements
+
+### 💡 Future Improvements
+
 Convert to Spring Boot
 Add REST APIs
 JWT Authentication
 React Frontend
-👨‍💻 Author's
 
-Zaheer Abbas (Starcloud-retro)
-Metri Naveen (metrinaveen08)
+### 👨‍💻 Author's
+
+### Zaheer Abbas (Starcloud-retro)
+### Metri Naveen (metrinaveen08)
 B.Tech CSE (AI & ML)
