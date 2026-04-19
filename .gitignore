@@ -1,19 +1,45 @@
 # Build outputs
-/target/
-/out/
+target/
+**/target/
+out/
+dist/
 
-# IDE configs
+# Maven and Java
+*.class
+*.jar
+*.war
+*.ear
+dependency-reduced-pom.xml
+
+# Bundled local Maven distribution
+/apache-maven-3.9.6/
+
+# IDE and editor files
 .idea/
 .vscode/
 *.iml
-
-# Maven binaries bundled
-/apache-maven-3.9.6/
+.project
+.classpath
+.settings/
+*.swp
+*.swo
 
 # Logs and temp files
 *.log
-*.class
+*.tmp
+*.temp
+hs_err_pid*
+replay_pid*
 
 # OS-specific
 .DS_Store
 Thumbs.db
+Desktop.ini
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Optional local archives
+*.zip
