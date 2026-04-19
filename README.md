@@ -1,206 +1,289 @@
-# 🐾 PawsConnect
+<div align="center">
 
-A community-driven platform where animals find loving homes.  
-Buy, sell, and connect with verified pet owners and animal lovers.
+<h1>PawsConnect Hub</h1>
 
----
+<h3>Community Platform for Pet Lovers, Marketplace, and Session-Based Authentication</h3>
 
-## 🚀 Features
+<p>
+  <a href="https://github.com/Code-Crew-Nexus/PawsConnectHub"><img src="https://img.shields.io/badge/status-active-brightgreen" alt="Project Status"></a>
+  <a href="https://github.com/Code-Crew-Nexus/PawsConnectHub"><img src="https://img.shields.io/badge/license-MIT-informational" alt="License"></a>
+  <a href="https://www.oracle.com/java/"><img src="https://img.shields.io/badge/Java-26-orange" alt="Java"></a>
+  <a href="https://maven.apache.org/"><img src="https://img.shields.io/badge/Build-Maven-blue" alt="Maven"></a>
+  <a href="https://tomcat.apache.org/"><img src="https://img.shields.io/badge/Server-Tomcat%2010-lightgrey" alt="Tomcat"></a>
+</p>
 
-- 🐶 Buy & Sell Animals
-- ✅ Verified Sellers
-- 📍 GPS Photo Proof
-- 👥 Community Interaction
-- 🔐 Authentication System (Login/Register/Session)
-- 🗄️ MySQL Database Integration
+<p>
+  <a href="https://github.com/Code-Crew-Nexus/PawsConnectHub/stargazers"><img src="https://img.shields.io/github/stars/Code-Crew-Nexus/PawsConnectHub?style=social" alt="GitHub stars"></a>
+  <a href="https://github.com/Code-Crew-Nexus/PawsConnectHub/network/members"><img src="https://img.shields.io/github/forks/Code-Crew-Nexus/PawsConnectHub?style=social" alt="GitHub forks"></a>
+  <a href="https://github.com/Code-Crew-Nexus/PawsConnectHub/watchers"><img src="https://img.shields.io/github/watchers/Code-Crew-Nexus/PawsConnectHub?style=social" alt="GitHub watchers"></a>
+</p>
 
----
+<h2>Languages and Tools 🛠️</h2>
 
-## 🏗️ Tech Stack
+<p>
+  <a href="https://www.oracle.com/java/"><img src="https://img.shields.io/badge/Java-ED8B00?logo=openjdk&amp;logoColor=white" alt="Java"></a>
+  <a href="https://jakarta.ee/specifications/servlet/"><img src="https://img.shields.io/badge/Jakarta%20Servlet-API-red" alt="Jakarta Servlet"></a>
+  <a href="https://maven.apache.org/"><img src="https://img.shields.io/badge/Apache%20Maven-C71A36?logo=apachemaven&amp;logoColor=white" alt="Maven"></a>
+  <a href="https://www.mysql.com/"><img src="https://img.shields.io/badge/MySQL-4479A1?logo=mysql&amp;logoColor=white" alt="MySQL"></a>
+  <a href="https://tomcat.apache.org/"><img src="https://img.shields.io/badge/Apache%20Tomcat-F8DC75?logo=apachetomcat&amp;logoColor=black" alt="Tomcat"></a>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/HTML"><img src="https://img.shields.io/badge/HTML5-E34F26?logo=html5&amp;logoColor=white" alt="HTML5"></a>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/CSS"><img src="https://img.shields.io/badge/CSS3-1572B6?logo=css3&amp;logoColor=white" alt="CSS3"></a>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><img src="https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&amp;logoColor=black" alt="JavaScript"></a>
+</p>
 
-| Layer        | Technology |
-|-------------|------------|
-| Frontend    | HTML, CSS, JavaScript |
-| Backend     | Java Servlets |
-| Database    | MySQL |
-| Build Tool  | Maven |
-| Server      | Apache Tomcat |
-| IDE         | IntelliJ IDEA |
+</div>
 
----
+## Project Analysis 🔍
 
-## 📂 Project Structure
+PawsConnect Hub is a Java Servlet web application packaged as a WAR file and deployed on [Apache Tomcat](https://tomcat.apache.org/). The current implementation provides user registration/login/session management and static pages for marketplace and community experiences.
 
-src/
-└── main/
-├── java/com/pawsconnect/
-│ ├── controller/
-│ ├── dao/
-│ ├── model/
-│ └── util/
-│
-├── resources/
-│ └── schema.sql
-│
-└── webapp/
-├── index.html
-├── login.html
-├── marketplace.html
-├── community.html
-├── blog.html
-└── js/
-└── auth.js
+High-level architecture flow:
 
+1. Browser UI pages submit authentication requests.
+2. Servlet controllers validate input and process requests.
+3. DAO layer executes SQL operations through JDBC.
+4. JSON responses are returned to the frontend.
+5. User session state is managed using HttpSession.
 
----
+## What It Does ✨
 
-## ⚙️ Prerequisites
+- Registers users through a servlet endpoint.
+- Authenticates users and creates sessions.
+- Exposes current session details as JSON.
+- Invalidates sessions on logout.
+- Serves static pages for index, blog, community, marketplace, and login.
 
-Make sure you have:
+## Features 🚀
 
-- Java JDK 17+
-- IntelliJ IDEA (Ultimate recommended)
-- Apache Tomcat (9 or 10)
-- MySQL Server
-- Maven
+- Java Servlet authentication module.
+- Session-aware frontend navbar behavior.
+- MySQL-backed persistence layer.
+- SQL schema for users, posts, and marketplace items.
+- Maven WAR build pipeline.
+- Vercel rewrites for static route mapping in [vercel.json](vercel.json).
 
----
+## Project Structure 🗂️
 
-## 🧠 Setup Guide (Step-by-Step)
+```text
+PawsConnectHub/
+|-- pom.xml
+|-- vercel.json
+|-- .gitignore
+|-- .gitattributes
+|-- README.md
+|-- docs/
+|   |-- DATABASE_SETUP.MD
+|   `-- requirement.txt
+|-- src/
+|   `-- main/
+|       |-- java/com/pawsconnect/
+|       |   |-- controller/
+|       |   |   |-- LoginServlet.java
+|       |   |   |-- LogoutServlet.java
+|       |   |   |-- RegisterServlet.java
+|       |   |   `-- SessionServlet.java
+|       |   |-- dao/
+|       |   |   `-- UserDAO.java
+|       |   |-- model/
+|       |   |   `-- User.java
+|       |   `-- util/
+|       |       `-- DBConnection.java
+|       |-- resources/
+|       |   `-- schema.sql
+|       `-- webapp/
+|           |-- index.html
+|           |-- login.html
+|           |-- marketplace.html
+|           |-- community.html
+|           |-- blog.html
+|           `-- js/
+|               `-- auth.js
+`-- target/
+```
 
-### 1. Clone the Repository
+## Requirements 📋
 
-bash
+Full requirements are listed in:
 
-git clone https://github.com/Starcloud-retro/PawsConnectHub.git
+- [docs/requirement.txt](docs/requirement.txt)
+
+Quick view:
+
+- [JDK 26](https://www.oracle.com/java/)
+- [Maven 3.9+](https://maven.apache.org/)
+- [Apache Tomcat 10+](https://tomcat.apache.org/)
+- [MySQL 8+](https://www.mysql.com/)
+- [Git](https://git-scm.com/)
+
+## Database Setup Guide 🗄️
+
+Database initialization, schema import, credential configuration, and troubleshooting are documented in a dedicated guide.
+
+- Purpose: keep database instructions centralized, detailed, and easy to maintain.
+- Open guide: [docs/DATABASE_SETUP.MD](docs/DATABASE_SETUP.MD)
+
+## Clone the Repository 📥
+
+Use these commands to copy the project locally and move into the project root:
+
+```bash
+git clone https://github.com/Code-Crew-Nexus/PawsConnectHub.git
 cd PawsConnectHub
+```
 
-### 2. Open in IntelliJ
-Open IntelliJ → Open Project
-Select the project folder
+After cloning, confirm you are in the correct directory:
 
+```bash
+pwd
+```
 
-### 3. Configure SDK
+Expected output ends with `PawsConnectHub`.
 
-Go to:
+## Environment Setup ⚙️
 
-File → Project Structure → Project
+Configure the full development environment first. This section only prepares tools and dependencies.
 
-Set SDK → JDK 17 or above
+### 1. Verify Java installation
 
-### 4. Setup Maven
+Install JDK 26, then run:
 
-If not auto-detected:
+```bash
+java -version
+javac -version
+```
 
-Right-click pom.xml → Add as Maven Project
+Confirm both commands return Java 26.
 
-### 5. Configure Database
+### 2. Verify Maven installation
 
-Open MySQL
+Install Maven 3.9+, then run:
 
-Run:
-CREATE DATABASE pawsconnect;
-USE pawsconnect;
-Import schema:
-SOURCE src/main/resources/schema.sql;
+```bash
+mvn -version
+```
 
-### 6. Update DB Credentials
+Confirm Maven is detected and uses the same Java installation.
 
-Go to:
+### 3. Complete database setup using the dedicated guide
 
-src/main/java/com/pawsconnect/util/DBConnection.java
+Follow [docs/DATABASE_SETUP.MD](docs/DATABASE_SETUP.MD) for:
 
-Update:
+- MySQL verification
+- Database creation
+- Schema import
+- DBConnection credential update
+- Connection validation and DB troubleshooting
 
-private static final String URL = "jdbc:mysql://localhost:3306/pawsconnect";
-private static final String USER = "root";
-private static final String PASSWORD = "your_password";
+### 4. Prepare Apache Tomcat
 
-### 7. Configure Tomcat Server
+Install [Apache Tomcat 10+](https://tomcat.apache.org/), then identify your Tomcat home folder.
 
-Go to: Run → Edit Configurations
-Add → Tomcat Server → Local
-Set Application Server → Your Tomcat Folder
+Common locations:
 
-### 8. Add Deployment
+- Windows: `C:\apache-tomcat-10.x.x`
+- Linux/Arch: `/opt/tomcat` or `/usr/share/tomcat`
 
-In Deployment tab → Click "+"
-Select:
-PawsConnect:war exploded
+### 5. Build the project artifact
 
-### 9. Verify Artifact
+From the project root, run:
 
-Go to:
+```bash
+mvn clean package
+```
 
-File → Project Structure → Artifacts
+On success, WAR file is generated at [target/PawsConnect.war](target/PawsConnect.war).
 
-Make sure it contains:
+## Step-by-Step: Running the Program ▶️
 
-WEB-INF
-Web facet resources
+Use this section after environment setup is complete.
 
-### 10. Run Project
+### Option A: Run via Tomcat deployment (recommended)
 
-Click ▶️ Run
+1. Copy [target/PawsConnect.war](target/PawsConnect.war) to Tomcat's webapps folder.
+2. Start Tomcat server.
+3. Wait until deployment logs show app deployment completed.
+4. Open [http://localhost:8080/PawsConnect/](http://localhost:8080/PawsConnect/).
+5. Open [http://localhost:8080/PawsConnect/login.html](http://localhost:8080/PawsConnect/login.html) to test auth flow.
 
-Open browser:
+### Option B: Run via IntelliJ IDEA
 
-http://localhost:8080/PawsConnect/
+1. Open project in IntelliJ IDEA.
+2. Configure project SDK as Java 26.
+3. Add a Tomcat Local run configuration.
+4. Add deployment artifact `PawsConnect:war exploded`.
+5. Start the configuration.
+6. Open [http://localhost:8080/PawsConnect/](http://localhost:8080/PawsConnect/).
 
-| Action   | Servlet         |
-| -------- | --------------- |
-| Register | RegisterServlet |
-| Login    | LoginServlet    |
-| Logout   | LogoutServlet   |
-| Session  | SessionServlet  |
+### Step-by-Step smoke test checklist
 
+1. Open login page and register a test user.
+2. Login with the same credentials.
+3. Confirm session endpoint returns logged-in response: [http://localhost:8080/PawsConnect/api/session](http://localhost:8080/PawsConnect/api/session).
+4. Logout and verify session endpoint returns loggedIn false.
 
-### 🔄 How It Works
+### If startup fails
 
-User submits form (HTML)
-JavaScript sends request
-Servlet handles request
-DAO interacts with database
-Response returned as JSON
-Frontend updates UI
+1. Recheck DB credentials in [src/main/java/com/pawsconnect/util/DBConnection.java](src/main/java/com/pawsconnect/util/DBConnection.java).
+2. Confirm MySQL is running and database `pawsconnect` exists.
+3. Rebuild with `mvn clean package`.
+4. Verify deployment context path is `PawsConnect`.
 
-### 🧪 Testing
+## API Endpoints 🔌
 
-Register a new user
-Login
-Check session
-Logout
+| Method | Endpoint                  | Purpose |
+| ------ | ------------------------- | ------- |
+| POST   | /PawsConnect/login        | Login user and create session |
+| POST   | /PawsConnect/register     | Register a new user |
+| GET    | /PawsConnect/logout       | Invalidate active session |
+| GET    | /PawsConnect/api/session  | Return current session state |
 
-### ⚠️ Common Errors
+## Source File Responsibilities 🧩
 
-404 Error
-Check URL: /PawsConnect/
-Ensure artifact deployed
+- [src/main/java/com/pawsconnect/controller/LoginServlet.java](src/main/java/com/pawsconnect/controller/LoginServlet.java): Validates login input and creates a session.
+- [src/main/java/com/pawsconnect/controller/RegisterServlet.java](src/main/java/com/pawsconnect/controller/RegisterServlet.java): Validates registration input and inserts user.
+- [src/main/java/com/pawsconnect/controller/SessionServlet.java](src/main/java/com/pawsconnect/controller/SessionServlet.java): Returns login state and user info.
+- [src/main/java/com/pawsconnect/controller/LogoutServlet.java](src/main/java/com/pawsconnect/controller/LogoutServlet.java): Invalidates session.
+- [src/main/java/com/pawsconnect/dao/UserDAO.java](src/main/java/com/pawsconnect/dao/UserDAO.java): Executes auth-related DB queries.
+- [src/main/java/com/pawsconnect/util/DBConnection.java](src/main/java/com/pawsconnect/util/DBConnection.java): Creates JDBC connections.
+- [src/main/webapp/js/auth.js](src/main/webapp/js/auth.js): Handles frontend auth requests and navbar updates.
 
-Database Error
-MySQL running
-Credentials correct
+## Security Notes 🔐
 
-Servlet Not Working
-Check web.xml
-Check mappings
-Blank Page
-Check browser console (F12)
+- Password constant in [src/main/java/com/pawsconnect/util/DBConnection.java](src/main/java/com/pawsconnect/util/DBConnection.java) is intentionally blank now.
+- You must set your local DB password before running the app.
+- Current auth flow stores plain text passwords in DB columns (`password_hash` field name is misleading).
+- For production, migrate to strong hashing (bcrypt or Argon2).
 
-### 📌 Notes
-Uses WAR exploded deployment
-Built with pure Servlets (no Spring Boot)
-Good for learning backend fundamentals
+## Troubleshooting 🧯
 
-### 💡 Future Improvements
+- 404 for app routes:
+  - Confirm deployment context is `PawsConnect`.
+- DB connection failures:
+  - Check MySQL status and DB credentials in [src/main/java/com/pawsconnect/util/DBConnection.java](src/main/java/com/pawsconnect/util/DBConnection.java).
+- Build issues:
+  - Ensure local JDK version matches compiler settings in [pom.xml](pom.xml).
+- Session endpoint not returning loggedIn true:
+  - Verify login call succeeded and browser preserves session cookies.
 
-Convert to Spring Boot
-Add REST APIs
-JWT Authentication
-React Frontend
+## Future Improvements 🌱
 
-### 👨‍💻 Author's
+- Add password hashing and salting.
+- Move credentials to environment variables or external config.
+- Add unit and integration tests.
+- Introduce role-based authorization.
+- Build REST APIs for frontend decoupling.
 
-### Zaheer Abbas (Starcloud-retro)
-### Metri Naveen (metrinaveen08)
-B.Tech CSE (AI & ML)
+## Contributors 👥
+
+- Zaheer Abbas
+- Metri Naveen
+
+Contributions are welcome through issues and pull requests.
+
+## Additional Links 🔗
+
+- [Repository](https://github.com/Code-Crew-Nexus/PawsConnectHub)
+- [Issues](https://github.com/Code-Crew-Nexus/PawsConnectHub/issues)
+- [Pull Requests](https://github.com/Code-Crew-Nexus/PawsConnectHub/pulls)
+- [Actions](https://github.com/Code-Crew-Nexus/PawsConnectHub/actions)
+- [Main README (GitHub)](https://github.com/Code-Crew-Nexus/PawsConnectHub/blob/main/README.md)

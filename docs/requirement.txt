@@ -1,0 +1,44 @@
+PawsConnectHub Project Requirements
+===================================
+
+Runtime Requirements
+--------------------
+- Java Development Kit (JDK): 26 (as configured in pom.xml)
+- Apache Maven: 3.9+
+- Apache Tomcat: 10+
+- MySQL Server: 8+
+- Git: latest stable
+
+Maven Dependencies (from pom.xml)
+---------------------------------
+- jakarta.servlet:jakarta.servlet-api:6.0.0 (provided)
+- jakarta.servlet.jsp:jakarta.servlet.jsp-api:3.1.1 (provided)
+- jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api:3.0.0
+- org.glassfish.web:jakarta.servlet.jsp.jstl:3.0.1
+- com.mysql:mysql-connector-j:9.6.0
+- com.google.code.gson:gson:2.10.1
+
+Build/Plugin Requirements
+-------------------------
+- maven-compiler-plugin: 3.13.0
+- maven-war-plugin: 3.4.0
+
+Operating System Compatibility
+------------------------------
+- Windows 11 (PowerShell or CMD)
+- Linux distributions (including Arch Linux)
+
+Line Ending Policy
+------------------
+- Repository-normalized LF line endings are controlled by .gitattributes.
+- Windows command scripts (*.cmd, *.bat, *.ps1) are preserved as CRLF.
+
+Environment Configuration
+-------------------------
+Before running the application, update database credentials in:
+- src/main/java/com/pawsconnect/util/DBConnection.java
+
+Example values:
+- URL: jdbc:mysql://localhost:3306/pawsconnect?useSSL=false&serverTimezone=UTC
+- USER: root
+- PASSWORD: <your_mysql_password>
